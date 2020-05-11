@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/05/07 22:28:11.000.172,=C:\Users\Henrique\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/05/07 22:28:59.000.858,C:\Users\Henrique\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Henrique\Desktop\Projeto Realtec\KeyGen.pas</Transaction>
+    <Transaction>2020/05/07 22:28:59.000.858,C:\Users\Henrique\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Henrique\Desktop\Projeto Realtec\KeyGen.dfm</Transaction>
+    <Transaction>2020/05/07 23:00:33.000.349,C:\Users\Henrique\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Henrique\Desktop\Projeto Realtec\Project1.dproj</Transaction>
+    <Transaction>2020/05/09 00:55:05.000.735,=C:\Users\Henrique\Desktop\Projeto Realtec\Unit2.pas</Transaction>
+    <Transaction>2020/05/09 17:04:21.000.975,=C:\Users\Henrique\Desktop\Projeto Realtec\Unit1.pas</Transaction>
+    <Transaction>2020/05/09 17:05:52.000.709,=C:\Users\Henrique\Desktop\Projeto Realtec\Unit3.pas</Transaction>
+    <Transaction>2020/05/09 17:10:54.000.621,=C:\Users\Henrique\Desktop\Projeto Realtec\Unit3.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="KeyGen.pas"/>
+    <File Path="KeyGen.dfm"/>
+    <File Path="Unit2.pas"/>
+    <File Path="Unit2.dfm"/>
+    <File Path="Unit3.pas"/>
+    <File Path="Unit3.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

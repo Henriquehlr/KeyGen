@@ -1,0 +1,211 @@
+unit KeyGen;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, idHashMessageDigest, IniFiles, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Menus, Vcl.Buttons,
+  Unit3, System.ImageList, Vcl.ImgList;
+
+type
+  TForm1 = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Button1: TButton;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Edit7: TEdit;
+    Label8: TLabel;
+    Edit8: TEdit;
+    Button2: TButton;
+    Edit9: TEdit;
+    Label9: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Edit4Change(Sender: TObject);
+    procedure Edit4KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit7KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit5KeyPress(Sender: TObject; var Key: Char);
+    procedure Button2Click(Sender: TObject);
+    procedure Edit8Change(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  ArqIni: TIniFile;
+
+implementation
+
+{$R *.dfm}
+
+// MD5 Criptografia
+procedure TForm1.Button1Click(Sender: TObject);
+
+Var
+  Md5: TidHashMessageDigest5;
+  Str: String;
+  Str3: String;
+  Str4: String;
+  Str5: String;
+  Str6: String;
+  Str7: String;
+  Sai: String;
+
+begin
+
+  Md5 := TidHashMessageDigest5.Create;
+  Str := Edit1.Text;
+  Str3 := Edit3.Text;
+  Str4 := Edit4.Text;
+  Str5 := Edit5.Text;
+  Str6 := Edit6.Text;
+  Str7 := Edit7.Text;
+
+  Sai := Md5.HashStringAsHex((Str) + (Str3) + (Str4) + (Str5) + (Str6)
+    + (Str7));
+  Edit8.Text := Sai;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  if (Edit9.Text <> Edit8.Text) then
+  begin
+    ShowMessage('Chave Invalida' + #13 + #13 +
+      'Entre em Contato com o Suporte.');
+  end
+  else if (Edit9.Text = '') then
+  begin
+     ShowMessage('Chave Invalida' + #13 + #13 +
+      'Você deve preenhcer o campo validar chave.');
+  end
+  else
+  begin
+    begin
+      ShowMessage('Chave Validada Com Sucesso,' + #13 + #13 +
+        'Bem Vindo ao Neo System');
+      form3.show;
+    end
+  end
+end;
+
+procedure TForm1.Edit4Change(Sender: TObject);
+var
+  valor: real; // Variavel Numerica
+begin
+
+end;
+
+// Mascara CPF
+procedure TForm1.Edit4KeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #8 then
+    exit;
+
+  if Length(Edit4.Text) = 3 then
+  begin
+    Edit4.Text := Edit4.Text + '.';
+    Edit4.Selstart := Length(Edit4.Text);
+  end;
+
+  if Length(Edit4.Text) = 7 then
+  begin
+    Edit4.Text := Edit4.Text + '.';
+    Edit4.Selstart := Length(Edit4.Text);
+  end;
+
+  if Length(Edit4.Text) = 11 then
+  begin
+    Edit4.Text := Edit4.Text + '-';
+    Edit4.Selstart := Length(Edit4.Text);
+  end
+end;
+
+// Mascara CNPJ
+procedure TForm1.Edit7KeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #8 then
+    exit;
+
+  if Length(Edit7.Text) = 2 then
+  begin
+    Edit7.Text := Edit7.Text + '.';
+    Edit7.Selstart := Length(Edit7.Text);
+  end;
+
+  if Length(Edit7.Text) = 6 then
+  begin
+    Edit7.Text := Edit7.Text + '.';
+    Edit7.Selstart := Length(Edit7.Text);
+  end;
+
+  if Length(Edit7.Text) = 10 then
+  begin
+    Edit7.Text := Edit7.Text + '/';
+    Edit7.Selstart := Length(Edit7.Text);
+  end;
+
+  if Length(Edit7.Text) = 15 then
+  begin
+    Edit7.Text := Edit7.Text + '-';
+    Edit7.Selstart := Length(Edit7.Text);
+  end
+end;
+
+
+procedure TForm1.Edit8Change(Sender: TObject);
+begin
+
+             Edit8.SelectAll;
+             Edit8.CopyToClipboard
+end;
+
+// Mascara Número da Versão
+procedure TForm1.Edit5KeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #8 then
+    exit;
+
+  if Length(Edit5.Text) = 1 then
+  begin
+    Edit5.Text := Edit5.Text + '.';
+    Edit5.Selstart := Length(Edit5.Text);
+  end;
+
+  if Length(Edit5.Text) = 4 then
+  begin
+    Edit5.Text := Edit5.Text + '.';
+    Edit5.Selstart := Length(Edit5.Text);
+  end;
+
+  if Length(Edit5.Text) = 6 then
+  begin
+    Edit5.Text := Edit5.Text + '.';
+    Edit5.Selstart := Length(Edit5.Text);
+  end;
+
+
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+
+begin
+  Edit6.Text := DateToStr(Date());
+  Edit3.Text := TimeToStr(Now);
+end;
+
+end.
